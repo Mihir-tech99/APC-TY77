@@ -1,12 +1,24 @@
-word = input("Enter the word to search: ")
-count = 0
-line_numbers = []
-with open("student.txt", "r") as file:
-    for line_no, line in enumerate(file, start=1):
-        words = line.split()
-        for w in words:
-            if w.lower() == word.lower():
-                count += 1
-                line_numbers.append(line_no)
-print("Number of occurrences:", count)
-print("Line numbers:", line_numbers)
+class Person:
+    def display_role(self):
+        print("Person")
+
+
+class Student(Person):
+    def display_role(self):
+        print("Role: Student")
+
+
+class Faculty(Person):
+    def display_role(self):
+        print("Role: Faculty")
+
+
+class Administrator(Person):
+    def display_role(self):
+        print("Role: Administrator")
+
+
+people = [Student(), Faculty(), Administrator()]
+
+for person in people:
+    person.display_role()

@@ -1,19 +1,21 @@
-with open("student.txt", "r") as file:
-    content = file.read()
-alphabets = 0
-digits = 0
-spaces = 0
-special = 0
-for ch in content:
-    if ch.isalpha():
-        alphabets += 1
-    elif ch.isdigit():
-        digits += 1
-    elif ch == " ":
-        spaces += 1
-    elif ch != "\n":
-        special += 1
-print("Alphabets:", alphabets)
-print("Digits:", digits)
-print("Spaces:", spaces)
-print("Special characters:", special)
+class Student:
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+
+    def __gt__(self, other):
+        return self.marks > other.marks
+
+    def __lt__(self, other):
+        return self.marks < other.marks
+
+
+s1 = Student("Rehan", 85)
+s2 = Student("Riya", 90)
+
+if s1 > s2:
+    print(s1.name, "scored more")
+elif s1 < s2:
+    print(s2.name, "scored more")
+else:
+    print("Both scored equal")

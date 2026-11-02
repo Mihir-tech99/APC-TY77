@@ -1,9 +1,24 @@
-old_word = input("Enter word to replace: ")
-new_word = input("Enter new word: ")
-with open("student.txt", "r") as file:
-    content = file.read()
-content = content.replace(old_word, new_word)
-with open("student_new.txt", "w") as file:
-    file.write(content)
-print("Word replaced successfully.")
-print("Modified text saved in student_new.txt")
+class Media:
+    def play(self):
+        print("Playing media...")
+
+
+class Audio(Media):
+    def play(self):
+        print("Playing audio track")
+
+
+class Video(Media):
+    def play(self):
+        print("Playing video")
+
+
+class Podcast(Media):
+    def play(self):
+        print("Playing podcast episode")
+
+
+media_list = [Audio(), Video(), Podcast()]
+
+for m in media_list:
+    m.play()
